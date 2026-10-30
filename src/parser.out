@@ -1,0 +1,3410 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    FIRMA
+
+Grammar
+
+Rule 0     S' -> p_json
+Rule 1     p_json -> APERTURA_OBJETO contenido CLAUSURA_OBJETO
+Rule 2     contenido -> equipos COMA version COMA firma_digital
+Rule 3     contenido -> equipos COMA firma_digital COMA version
+Rule 4     contenido -> version COMA equipos COMA firma_digital
+Rule 5     contenido -> version COMA firma_digital COMA equipos
+Rule 6     contenido -> firma_digital COMA equipos COMA version
+Rule 7     contenido -> firma_digital COMA version COMA equipos
+Rule 8     contenido -> equipos COMA version
+Rule 9     contenido -> version COMA equipos
+Rule 10    contenido -> equipos COMA firma_digital
+Rule 11    contenido -> firma_digital COMA equipos
+Rule 12    contenido -> equipos
+Rule 13    version -> VERSION DOS_PUNTOS VALOR_STRING
+Rule 14    version -> VERSION DOS_PUNTOS VALOR_NULL
+Rule 15    firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+Rule 16    firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+Rule 17    equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+Rule 18    lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA lista_equipos
+Rule 19    lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO
+Rule 20    miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+Rule 21    miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+Rule 22    miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+Rule 23    miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+Rule 24    nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS VALOR_STRING
+Rule 25    nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS error
+Rule 26    identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS VALOR_URL
+Rule 27    identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS error
+Rule 28    direccion -> DIRECCION DOS_PUNTOS valor_para_direccion
+Rule 29    valor_para_direccion -> VALOR_NULL
+Rule 30    valor_para_direccion -> APERTURA_OBJETO CLAUSURA_OBJETO
+Rule 31    valor_para_direccion -> APERTURA_OBJETO miembros_direccion CLAUSURA_OBJETO
+Rule 32    miembros_direccion -> calle COMA ciudad COMA pais
+Rule 33    miembros_direccion -> calle COMA pais COMA ciudad
+Rule 34    miembros_direccion -> ciudad COMA calle COMA pais
+Rule 35    miembros_direccion -> ciudad COMA pais COMA calle
+Rule 36    miembros_direccion -> pais COMA calle COMA ciudad
+Rule 37    miembros_direccion -> pais COMA ciudad COMA calle
+Rule 38    calle -> CALLE DOS_PUNTOS VALOR_STRING
+Rule 39    calle -> CALLE DOS_PUNTOS error
+Rule 40    ciudad -> CIUDAD DOS_PUNTOS VALOR_STRING
+Rule 41    ciudad -> CIUDAD DOS_PUNTOS error
+Rule 42    pais -> PAIS DOS_PUNTOS VALOR_STRING
+Rule 43    pais -> PAIS DOS_PUNTOS error
+Rule 44    link -> LINK DOS_PUNTOS VALOR_URL
+Rule 45    link -> LINK DOS_PUNTOS VALOR_NULL
+Rule 46    link -> LINK DOS_PUNTOS error
+Rule 47    carrera -> CARRERA DOS_PUNTOS VALOR_STRING
+Rule 48    carrera -> CARRERA DOS_PUNTOS error
+Rule 49    asignatura -> ASIGNATURA DOS_PUNTOS VALOR_STRING
+Rule 50    asignatura -> ASIGNATURA DOS_PUNTOS error
+Rule 51    universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING
+Rule 52    universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS error
+Rule 53    alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING
+Rule 54    alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS error
+Rule 55    integrantes -> INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+Rule 56    lista_integrantes -> integrante_objeto COMA lista_integrantes
+Rule 57    lista_integrantes -> integrante_objeto
+Rule 58    integrante_objeto -> APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO
+Rule 59    miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+Rule 60    miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+Rule 61    nombre_par -> NOMBRE DOS_PUNTOS VALOR_STRING
+Rule 62    nombre_par -> NOMBRE DOS_PUNTOS error
+Rule 63    edad_par -> EDAD DOS_PUNTOS VALOR_ENTERO
+Rule 64    edad_par -> EDAD DOS_PUNTOS VALOR_NULL
+Rule 65    edad_par -> EDAD DOS_PUNTOS error
+Rule 66    cargo_par -> CARGO DOS_PUNTOS VALOR_STRING
+Rule 67    cargo_par -> CARGO DOS_PUNTOS error
+Rule 68    foto_par -> FOTO DOS_PUNTOS VALOR_URL
+Rule 69    foto_par -> FOTO DOS_PUNTOS error
+Rule 70    email_par -> EMAIL DOS_PUNTOS EMAIL
+Rule 71    email_par -> EMAIL DOS_PUNTOS error
+Rule 72    habilidades_par -> HABILIDADES DOS_PUNTOS VALOR_STRING
+Rule 73    habilidades_par -> HABILIDADES DOS_PUNTOS error
+Rule 74    salario_par -> SALARIO DOS_PUNTOS VALOR_REAL
+Rule 75    salario_par -> SALARIO DOS_PUNTOS VALOR_ENTERO
+Rule 76    salario_par -> SALARIO DOS_PUNTOS error
+Rule 77    activo_par -> ACTIVO DOS_PUNTOS VALOR_BOOL
+Rule 78    activo_par -> ACTIVO DOS_PUNTOS error
+Rule 79    proyectos -> PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+Rule 80    lista_proyectos -> proyecto_objeto COMA lista_proyectos
+Rule 81    lista_proyectos -> proyecto_objeto
+Rule 82    proyecto_objeto -> APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO
+Rule 83    miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+Rule 84    nombre_proyecto_par -> NOMBRE DOS_PUNTOS VALOR_STRING
+Rule 85    nombre_proyecto_par -> NOMBRE DOS_PUNTOS error
+Rule 86    estado_proyecto_par -> ESTADO DOS_PUNTOS VALOR_STRING
+Rule 87    estado_proyecto_par -> ESTADO DOS_PUNTOS error
+Rule 88    resumen_proyecto_par -> RESUMEN DOS_PUNTOS VALOR_STRING
+Rule 89    resumen_proyecto_par -> RESUMEN DOS_PUNTOS error
+Rule 90    tareas_proyecto_par -> TAREAS DOS_PUNTOS APERTURA_LISTA lista_tareas CLAUSURA_LISTA
+Rule 91    lista_tareas -> tarea_objeto COMA lista_tareas
+Rule 92    lista_tareas -> tarea_objeto
+Rule 93    tarea_objeto -> APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO
+Rule 94    miembros_tarea -> miembros_obligatorios_tarea
+Rule 95    miembros_tarea -> miembros_obligatorios_tarea COMA miembros_opcionales_tarea
+Rule 96    miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par COMA resumen_tarea_par
+Rule 97    miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par COMA estado_tarea_par
+Rule 98    miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par COMA resumen_tarea_par
+Rule 99    miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par COMA nombre_tarea_par
+Rule 100   miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par COMA estado_tarea_par
+Rule 101   miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par COMA nombre_tarea_par
+Rule 102   miembros_opcionales_tarea -> fecha_inicio_tarea_par COMA fecha_fin_tarea_par
+Rule 103   miembros_opcionales_tarea -> fecha_fin_tarea_par COMA fecha_inicio_tarea_par
+Rule 104   miembros_opcionales_tarea -> fecha_inicio_tarea_par
+Rule 105   miembros_opcionales_tarea -> fecha_fin_tarea_par
+Rule 106   nombre_tarea_par -> NOMBRE DOS_PUNTOS VALOR_STRING
+Rule 107   nombre_tarea_par -> NOMBRE DOS_PUNTOS error
+Rule 108   estado_tarea_par -> ESTADO DOS_PUNTOS VALOR_STRING
+Rule 109   estado_tarea_par -> ESTADO DOS_PUNTOS error
+Rule 110   resumen_tarea_par -> RESUMEN DOS_PUNTOS VALOR_STRING
+Rule 111   resumen_tarea_par -> RESUMEN DOS_PUNTOS error
+Rule 112   fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA
+Rule 113   fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_NULL
+Rule 114   fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS error
+Rule 115   fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA
+Rule 116   fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_NULL
+Rule 117   fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS error
+Rule 118   fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA
+Rule 119   fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS error
+Rule 120   fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA
+Rule 121   fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS error
+Rule 122   video_proyecto_par -> VIDEO DOS_PUNTOS VALOR_URL
+Rule 123   video_proyecto_par -> VIDEO DOS_PUNTOS error
+Rule 124   conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS VALOR_STRING
+Rule 125   conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS error
+
+Terminals, with rules where they appear
+
+ACTIVO               : 77 78
+ALIANZA_EQUIPO       : 53 54
+APERTURA_LISTA       : 17 55 79 90
+APERTURA_OBJETO      : 1 18 19 30 31 58 82 93
+ASIGNATURA           : 49 50
+CALLE                : 38 39
+CARGO                : 66 67
+CARRERA              : 47 48
+CIUDAD               : 40 41
+CLAUSURA_LISTA       : 17 55 79 90
+CLAUSURA_OBJETO      : 1 18 19 30 31 58 82 93
+COMA                 : 2 2 3 3 4 4 5 5 6 6 7 7 8 9 10 11 18 20 20 20 20 20 20 20 20 20 21 21 21 21 21 21 21 21 22 22 22 22 22 22 22 22 23 23 23 23 23 23 23 32 32 33 33 34 34 35 35 36 36 37 37 56 59 59 59 59 59 59 59 60 60 60 60 60 60 80 83 83 83 83 83 83 83 91 95 96 96 97 97 98 98 99 99 100 100 101 101 102 103
+CONCLUSION           : 124 125
+DIRECCION            : 28
+DOS_PUNTOS           : 13 14 15 16 17 24 25 26 27 28 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 84 85 86 87 88 89 90 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+EDAD                 : 63 64 65
+EMAIL                : 70 70 71
+EQUIPOS              : 17
+ESTADO               : 86 87 108 109
+FECHA_FIN            : 115 116 117 120 121
+FECHA_INICIO         : 112 113 114 118 119
+FIRMA                : 
+FIRMA_DIGITAL        : 15 16
+FOTO                 : 68 69
+HABILIDADES          : 72 73
+IDENTIDAD_EQUIPO     : 26 27
+INTEGRANTES          : 55
+LINK                 : 44 45 46
+NOMBRE               : 61 62 84 85 106 107
+NOMBRE_EQUIPO        : 24 25
+PAIS                 : 42 43
+PROYECTOS            : 79
+RESUMEN              : 88 89 110 111
+SALARIO              : 74 75 76
+TAREAS               : 90
+UNIVERSIDAD_REGIONAL : 51 52
+VALOR_BOOL           : 77
+VALOR_ENTERO         : 63 75
+VALOR_FECHA          : 112 115 118 120
+VALOR_NULL           : 14 16 29 45 64 113 116
+VALOR_REAL           : 74
+VALOR_STRING         : 13 15 24 38 40 42 47 49 51 53 61 66 72 84 86 88 106 108 110 124
+VALOR_URL            : 26 44 68 122
+VERSION              : 13 14
+VIDEO                : 122 123
+error                : 25 27 39 41 43 46 48 50 52 54 62 65 67 69 71 73 76 78 85 87 89 107 109 111 114 117 119 121 123 125
+
+Nonterminals, with rules where they appear
+
+activo_par           : 59 60
+alianza_equipo       : 20 21 22 23
+asignatura           : 20 21 22 23
+calle                : 32 33 34 35 36 37
+cargo_par            : 59 60
+carrera              : 20 21 22 23
+ciudad               : 32 33 34 35 36 37
+conclusion_proyecto_par : 83
+contenido            : 1
+direccion            : 20 21
+edad_par             : 59
+email_par            : 59 60
+equipos              : 2 3 4 5 6 7 8 9 10 11 12
+estado_proyecto_par  : 83
+estado_tarea_par     : 96 97 98 99 100 101
+fecha_fin_proyecto_par : 83
+fecha_fin_tarea_par  : 102 103 105
+fecha_inicio_proyecto_par : 83
+fecha_inicio_tarea_par : 102 103 104
+firma_digital        : 2 3 4 5 6 7 10 11
+foto_par             : 59 60
+habilidades_par      : 59 60
+identidad_equipo     : 20 21 22 23
+integrante_objeto    : 56 57
+integrantes          : 20 21 22 23
+link                 : 20 22
+lista_equipos        : 17 18
+lista_integrantes    : 55 56
+lista_proyectos      : 79 80
+lista_tareas         : 90 91
+miembros_direccion   : 31
+miembros_equipo      : 18 19
+miembros_integrante  : 58
+miembros_obligatorios_tarea : 94 95
+miembros_opcionales_tarea : 95
+miembros_proyecto    : 82
+miembros_tarea       : 93
+nombre_equipo        : 20 21 22 23
+nombre_par           : 59 60
+nombre_proyecto_par  : 83
+nombre_tarea_par     : 96 97 98 99 100 101
+p_json               : 0
+pais                 : 32 33 34 35 36 37
+proyecto_objeto      : 80 81
+proyectos            : 20 21 22 23
+resumen_proyecto_par : 83
+resumen_tarea_par    : 96 97 98 99 100 101
+salario_par          : 59 60
+tarea_objeto         : 91 92
+tareas_proyecto_par  : 83
+universidad_regional : 20 21 22 23
+valor_para_direccion : 28
+version              : 2 3 4 5 6 7 8 9
+video_proyecto_par   : 83
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . p_json
+    (1) p_json -> . APERTURA_OBJETO contenido CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 2
+
+    p_json                         shift and go to state 1
+
+state 1
+
+    (0) S' -> p_json .
+
+
+
+state 2
+
+    (1) p_json -> APERTURA_OBJETO . contenido CLAUSURA_OBJETO
+    (2) contenido -> . equipos COMA version COMA firma_digital
+    (3) contenido -> . equipos COMA firma_digital COMA version
+    (4) contenido -> . version COMA equipos COMA firma_digital
+    (5) contenido -> . version COMA firma_digital COMA equipos
+    (6) contenido -> . firma_digital COMA equipos COMA version
+    (7) contenido -> . firma_digital COMA version COMA equipos
+    (8) contenido -> . equipos COMA version
+    (9) contenido -> . version COMA equipos
+    (10) contenido -> . equipos COMA firma_digital
+    (11) contenido -> . firma_digital COMA equipos
+    (12) contenido -> . equipos
+    (17) equipos -> . EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+    (13) version -> . VERSION DOS_PUNTOS VALOR_STRING
+    (14) version -> . VERSION DOS_PUNTOS VALOR_NULL
+    (15) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+
+    EQUIPOS         shift and go to state 7
+    VERSION         shift and go to state 8
+    FIRMA_DIGITAL   shift and go to state 9
+
+    contenido                      shift and go to state 3
+    equipos                        shift and go to state 4
+    version                        shift and go to state 5
+    firma_digital                  shift and go to state 6
+
+state 3
+
+    (1) p_json -> APERTURA_OBJETO contenido . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 10
+
+
+state 4
+
+    (2) contenido -> equipos . COMA version COMA firma_digital
+    (3) contenido -> equipos . COMA firma_digital COMA version
+    (8) contenido -> equipos . COMA version
+    (10) contenido -> equipos . COMA firma_digital
+    (12) contenido -> equipos .
+
+    COMA            shift and go to state 11
+    CLAUSURA_OBJETO reduce using rule 12 (contenido -> equipos .)
+
+
+state 5
+
+    (4) contenido -> version . COMA equipos COMA firma_digital
+    (5) contenido -> version . COMA firma_digital COMA equipos
+    (9) contenido -> version . COMA equipos
+
+    COMA            shift and go to state 12
+
+
+state 6
+
+    (6) contenido -> firma_digital . COMA equipos COMA version
+    (7) contenido -> firma_digital . COMA version COMA equipos
+    (11) contenido -> firma_digital . COMA equipos
+
+    COMA            shift and go to state 13
+
+
+state 7
+
+    (17) equipos -> EQUIPOS . DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+
+    DOS_PUNTOS      shift and go to state 14
+
+
+state 8
+
+    (13) version -> VERSION . DOS_PUNTOS VALOR_STRING
+    (14) version -> VERSION . DOS_PUNTOS VALOR_NULL
+
+    DOS_PUNTOS      shift and go to state 15
+
+
+state 9
+
+    (15) firma_digital -> FIRMA_DIGITAL . DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> FIRMA_DIGITAL . DOS_PUNTOS VALOR_NULL
+
+    DOS_PUNTOS      shift and go to state 16
+
+
+state 10
+
+    (1) p_json -> APERTURA_OBJETO contenido CLAUSURA_OBJETO .
+
+    $end            reduce using rule 1 (p_json -> APERTURA_OBJETO contenido CLAUSURA_OBJETO .)
+
+
+state 11
+
+    (2) contenido -> equipos COMA . version COMA firma_digital
+    (3) contenido -> equipos COMA . firma_digital COMA version
+    (8) contenido -> equipos COMA . version
+    (10) contenido -> equipos COMA . firma_digital
+    (13) version -> . VERSION DOS_PUNTOS VALOR_STRING
+    (14) version -> . VERSION DOS_PUNTOS VALOR_NULL
+    (15) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+
+    VERSION         shift and go to state 8
+    FIRMA_DIGITAL   shift and go to state 9
+
+    version                        shift and go to state 17
+    firma_digital                  shift and go to state 18
+
+state 12
+
+    (4) contenido -> version COMA . equipos COMA firma_digital
+    (5) contenido -> version COMA . firma_digital COMA equipos
+    (9) contenido -> version COMA . equipos
+    (17) equipos -> . EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+    (15) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+
+    EQUIPOS         shift and go to state 7
+    FIRMA_DIGITAL   shift and go to state 9
+
+    equipos                        shift and go to state 19
+    firma_digital                  shift and go to state 20
+
+state 13
+
+    (6) contenido -> firma_digital COMA . equipos COMA version
+    (7) contenido -> firma_digital COMA . version COMA equipos
+    (11) contenido -> firma_digital COMA . equipos
+    (17) equipos -> . EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+    (13) version -> . VERSION DOS_PUNTOS VALOR_STRING
+    (14) version -> . VERSION DOS_PUNTOS VALOR_NULL
+
+    EQUIPOS         shift and go to state 7
+    VERSION         shift and go to state 8
+
+    equipos                        shift and go to state 21
+    version                        shift and go to state 22
+
+state 14
+
+    (17) equipos -> EQUIPOS DOS_PUNTOS . APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+
+    APERTURA_LISTA  shift and go to state 23
+
+
+state 15
+
+    (13) version -> VERSION DOS_PUNTOS . VALOR_STRING
+    (14) version -> VERSION DOS_PUNTOS . VALOR_NULL
+
+    VALOR_STRING    shift and go to state 24
+    VALOR_NULL      shift and go to state 25
+
+
+state 16
+
+    (15) firma_digital -> FIRMA_DIGITAL DOS_PUNTOS . VALOR_STRING
+    (16) firma_digital -> FIRMA_DIGITAL DOS_PUNTOS . VALOR_NULL
+
+    VALOR_STRING    shift and go to state 26
+    VALOR_NULL      shift and go to state 27
+
+
+state 17
+
+    (2) contenido -> equipos COMA version . COMA firma_digital
+    (8) contenido -> equipos COMA version .
+
+    COMA            shift and go to state 28
+    CLAUSURA_OBJETO reduce using rule 8 (contenido -> equipos COMA version .)
+
+
+state 18
+
+    (3) contenido -> equipos COMA firma_digital . COMA version
+    (10) contenido -> equipos COMA firma_digital .
+
+    COMA            shift and go to state 29
+    CLAUSURA_OBJETO reduce using rule 10 (contenido -> equipos COMA firma_digital .)
+
+
+state 19
+
+    (4) contenido -> version COMA equipos . COMA firma_digital
+    (9) contenido -> version COMA equipos .
+
+    COMA            shift and go to state 30
+    CLAUSURA_OBJETO reduce using rule 9 (contenido -> version COMA equipos .)
+
+
+state 20
+
+    (5) contenido -> version COMA firma_digital . COMA equipos
+
+    COMA            shift and go to state 31
+
+
+state 21
+
+    (6) contenido -> firma_digital COMA equipos . COMA version
+    (11) contenido -> firma_digital COMA equipos .
+
+    COMA            shift and go to state 32
+    CLAUSURA_OBJETO reduce using rule 11 (contenido -> firma_digital COMA equipos .)
+
+
+state 22
+
+    (7) contenido -> firma_digital COMA version . COMA equipos
+
+    COMA            shift and go to state 33
+
+
+state 23
+
+    (17) equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA . lista_equipos CLAUSURA_LISTA
+    (18) lista_equipos -> . APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA lista_equipos
+    (19) lista_equipos -> . APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 35
+
+    lista_equipos                  shift and go to state 34
+
+state 24
+
+    (13) version -> VERSION DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 13 (version -> VERSION DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 13 (version -> VERSION DOS_PUNTOS VALOR_STRING .)
+
+
+state 25
+
+    (14) version -> VERSION DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 14 (version -> VERSION DOS_PUNTOS VALOR_NULL .)
+    CLAUSURA_OBJETO reduce using rule 14 (version -> VERSION DOS_PUNTOS VALOR_NULL .)
+
+
+state 26
+
+    (15) firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 15 (firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 15 (firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING .)
+
+
+state 27
+
+    (16) firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 16 (firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL .)
+    CLAUSURA_OBJETO reduce using rule 16 (firma_digital -> FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL .)
+
+
+state 28
+
+    (2) contenido -> equipos COMA version COMA . firma_digital
+    (15) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+
+    FIRMA_DIGITAL   shift and go to state 9
+
+    firma_digital                  shift and go to state 36
+
+state 29
+
+    (3) contenido -> equipos COMA firma_digital COMA . version
+    (13) version -> . VERSION DOS_PUNTOS VALOR_STRING
+    (14) version -> . VERSION DOS_PUNTOS VALOR_NULL
+
+    VERSION         shift and go to state 8
+
+    version                        shift and go to state 37
+
+state 30
+
+    (4) contenido -> version COMA equipos COMA . firma_digital
+    (15) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_STRING
+    (16) firma_digital -> . FIRMA_DIGITAL DOS_PUNTOS VALOR_NULL
+
+    FIRMA_DIGITAL   shift and go to state 9
+
+    firma_digital                  shift and go to state 38
+
+state 31
+
+    (5) contenido -> version COMA firma_digital COMA . equipos
+    (17) equipos -> . EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+
+    EQUIPOS         shift and go to state 7
+
+    equipos                        shift and go to state 39
+
+state 32
+
+    (6) contenido -> firma_digital COMA equipos COMA . version
+    (13) version -> . VERSION DOS_PUNTOS VALOR_STRING
+    (14) version -> . VERSION DOS_PUNTOS VALOR_NULL
+
+    VERSION         shift and go to state 8
+
+    version                        shift and go to state 40
+
+state 33
+
+    (7) contenido -> firma_digital COMA version COMA . equipos
+    (17) equipos -> . EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA
+
+    EQUIPOS         shift and go to state 7
+
+    equipos                        shift and go to state 41
+
+state 34
+
+    (17) equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos . CLAUSURA_LISTA
+
+    CLAUSURA_LISTA  shift and go to state 42
+
+
+state 35
+
+    (18) lista_equipos -> APERTURA_OBJETO . miembros_equipo CLAUSURA_OBJETO COMA lista_equipos
+    (19) lista_equipos -> APERTURA_OBJETO . miembros_equipo CLAUSURA_OBJETO
+    (20) miembros_equipo -> . nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> . nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (22) miembros_equipo -> . nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (23) miembros_equipo -> . nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (24) nombre_equipo -> . NOMBRE_EQUIPO DOS_PUNTOS VALOR_STRING
+    (25) nombre_equipo -> . NOMBRE_EQUIPO DOS_PUNTOS error
+
+    NOMBRE_EQUIPO   shift and go to state 45
+
+    miembros_equipo                shift and go to state 43
+    nombre_equipo                  shift and go to state 44
+
+state 36
+
+    (2) contenido -> equipos COMA version COMA firma_digital .
+
+    CLAUSURA_OBJETO reduce using rule 2 (contenido -> equipos COMA version COMA firma_digital .)
+
+
+state 37
+
+    (3) contenido -> equipos COMA firma_digital COMA version .
+
+    CLAUSURA_OBJETO reduce using rule 3 (contenido -> equipos COMA firma_digital COMA version .)
+
+
+state 38
+
+    (4) contenido -> version COMA equipos COMA firma_digital .
+
+    CLAUSURA_OBJETO reduce using rule 4 (contenido -> version COMA equipos COMA firma_digital .)
+
+
+state 39
+
+    (5) contenido -> version COMA firma_digital COMA equipos .
+
+    CLAUSURA_OBJETO reduce using rule 5 (contenido -> version COMA firma_digital COMA equipos .)
+
+
+state 40
+
+    (6) contenido -> firma_digital COMA equipos COMA version .
+
+    CLAUSURA_OBJETO reduce using rule 6 (contenido -> firma_digital COMA equipos COMA version .)
+
+
+state 41
+
+    (7) contenido -> firma_digital COMA version COMA equipos .
+
+    CLAUSURA_OBJETO reduce using rule 7 (contenido -> firma_digital COMA version COMA equipos .)
+
+
+state 42
+
+    (17) equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA .
+
+    COMA            reduce using rule 17 (equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA .)
+    CLAUSURA_OBJETO reduce using rule 17 (equipos -> EQUIPOS DOS_PUNTOS APERTURA_LISTA lista_equipos CLAUSURA_LISTA .)
+
+
+state 43
+
+    (18) lista_equipos -> APERTURA_OBJETO miembros_equipo . CLAUSURA_OBJETO COMA lista_equipos
+    (19) lista_equipos -> APERTURA_OBJETO miembros_equipo . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 46
+
+
+state 44
+
+    (20) miembros_equipo -> nombre_equipo . COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo . COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (22) miembros_equipo -> nombre_equipo . COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (23) miembros_equipo -> nombre_equipo . COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 47
+
+
+state 45
+
+    (24) nombre_equipo -> NOMBRE_EQUIPO . DOS_PUNTOS VALOR_STRING
+    (25) nombre_equipo -> NOMBRE_EQUIPO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 48
+
+
+state 46
+
+    (18) lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO . COMA lista_equipos
+    (19) lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO .
+
+    COMA            shift and go to state 49
+    CLAUSURA_LISTA  reduce using rule 19 (lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO .)
+
+
+state 47
+
+    (20) miembros_equipo -> nombre_equipo COMA . identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo COMA . identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (22) miembros_equipo -> nombre_equipo COMA . identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (23) miembros_equipo -> nombre_equipo COMA . identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (26) identidad_equipo -> . IDENTIDAD_EQUIPO DOS_PUNTOS VALOR_URL
+    (27) identidad_equipo -> . IDENTIDAD_EQUIPO DOS_PUNTOS error
+
+    IDENTIDAD_EQUIPO shift and go to state 51
+
+    identidad_equipo               shift and go to state 50
+
+state 48
+
+    (24) nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS . VALOR_STRING
+    (25) nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 52
+    error           shift and go to state 53
+
+
+state 49
+
+    (18) lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA . lista_equipos
+    (18) lista_equipos -> . APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA lista_equipos
+    (19) lista_equipos -> . APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 35
+
+    lista_equipos                  shift and go to state 54
+
+state 50
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo . COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo . COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo . COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo . COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 55
+
+
+state 51
+
+    (26) identidad_equipo -> IDENTIDAD_EQUIPO . DOS_PUNTOS VALOR_URL
+    (27) identidad_equipo -> IDENTIDAD_EQUIPO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 56
+
+
+state 52
+
+    (24) nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 24 (nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS VALOR_STRING .)
+
+
+state 53
+
+    (25) nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS error .
+
+    COMA            reduce using rule 25 (nombre_equipo -> NOMBRE_EQUIPO DOS_PUNTOS error .)
+
+
+state 54
+
+    (18) lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA lista_equipos .
+
+    CLAUSURA_LISTA  reduce using rule 18 (lista_equipos -> APERTURA_OBJETO miembros_equipo CLAUSURA_OBJETO COMA lista_equipos .)
+
+
+state 55
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA . direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA . direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA . link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA . carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (28) direccion -> . DIRECCION DOS_PUNTOS valor_para_direccion
+    (44) link -> . LINK DOS_PUNTOS VALOR_URL
+    (45) link -> . LINK DOS_PUNTOS VALOR_NULL
+    (46) link -> . LINK DOS_PUNTOS error
+    (47) carrera -> . CARRERA DOS_PUNTOS VALOR_STRING
+    (48) carrera -> . CARRERA DOS_PUNTOS error
+
+    DIRECCION       shift and go to state 60
+    LINK            shift and go to state 61
+    CARRERA         shift and go to state 62
+
+    direccion                      shift and go to state 57
+    link                           shift and go to state 58
+    carrera                        shift and go to state 59
+
+state 56
+
+    (26) identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS . VALOR_URL
+    (27) identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS . error
+
+    VALOR_URL       shift and go to state 63
+    error           shift and go to state 64
+
+
+state 57
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion . COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion . COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 65
+
+
+state 58
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link . COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 66
+
+
+state 59
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera . COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 67
+
+
+state 60
+
+    (28) direccion -> DIRECCION . DOS_PUNTOS valor_para_direccion
+
+    DOS_PUNTOS      shift and go to state 68
+
+
+state 61
+
+    (44) link -> LINK . DOS_PUNTOS VALOR_URL
+    (45) link -> LINK . DOS_PUNTOS VALOR_NULL
+    (46) link -> LINK . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 69
+
+
+state 62
+
+    (47) carrera -> CARRERA . DOS_PUNTOS VALOR_STRING
+    (48) carrera -> CARRERA . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 70
+
+
+state 63
+
+    (26) identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS VALOR_URL .
+
+    COMA            reduce using rule 26 (identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS VALOR_URL .)
+
+
+state 64
+
+    (27) identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS error .
+
+    COMA            reduce using rule 27 (identidad_equipo -> IDENTIDAD_EQUIPO DOS_PUNTOS error .)
+
+
+state 65
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA . link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA . carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (44) link -> . LINK DOS_PUNTOS VALOR_URL
+    (45) link -> . LINK DOS_PUNTOS VALOR_NULL
+    (46) link -> . LINK DOS_PUNTOS error
+    (47) carrera -> . CARRERA DOS_PUNTOS VALOR_STRING
+    (48) carrera -> . CARRERA DOS_PUNTOS error
+
+    LINK            shift and go to state 61
+    CARRERA         shift and go to state 62
+
+    link                           shift and go to state 71
+    carrera                        shift and go to state 72
+
+state 66
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA . carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (47) carrera -> . CARRERA DOS_PUNTOS VALOR_STRING
+    (48) carrera -> . CARRERA DOS_PUNTOS error
+
+    CARRERA         shift and go to state 62
+
+    carrera                        shift and go to state 73
+
+state 67
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA . asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (49) asignatura -> . ASIGNATURA DOS_PUNTOS VALOR_STRING
+    (50) asignatura -> . ASIGNATURA DOS_PUNTOS error
+
+    ASIGNATURA      shift and go to state 75
+
+    asignatura                     shift and go to state 74
+
+state 68
+
+    (28) direccion -> DIRECCION DOS_PUNTOS . valor_para_direccion
+    (29) valor_para_direccion -> . VALOR_NULL
+    (30) valor_para_direccion -> . APERTURA_OBJETO CLAUSURA_OBJETO
+    (31) valor_para_direccion -> . APERTURA_OBJETO miembros_direccion CLAUSURA_OBJETO
+
+    VALOR_NULL      shift and go to state 77
+    APERTURA_OBJETO shift and go to state 78
+
+    valor_para_direccion           shift and go to state 76
+
+state 69
+
+    (44) link -> LINK DOS_PUNTOS . VALOR_URL
+    (45) link -> LINK DOS_PUNTOS . VALOR_NULL
+    (46) link -> LINK DOS_PUNTOS . error
+
+    VALOR_URL       shift and go to state 79
+    VALOR_NULL      shift and go to state 80
+    error           shift and go to state 81
+
+
+state 70
+
+    (47) carrera -> CARRERA DOS_PUNTOS . VALOR_STRING
+    (48) carrera -> CARRERA DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 82
+    error           shift and go to state 83
+
+
+state 71
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link . COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 84
+
+
+state 72
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera . COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 85
+
+
+state 73
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera . COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 86
+
+
+state 74
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura . COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 87
+
+
+state 75
+
+    (49) asignatura -> ASIGNATURA . DOS_PUNTOS VALOR_STRING
+    (50) asignatura -> ASIGNATURA . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 88
+
+
+state 76
+
+    (28) direccion -> DIRECCION DOS_PUNTOS valor_para_direccion .
+
+    COMA            reduce using rule 28 (direccion -> DIRECCION DOS_PUNTOS valor_para_direccion .)
+
+
+state 77
+
+    (29) valor_para_direccion -> VALOR_NULL .
+
+    COMA            reduce using rule 29 (valor_para_direccion -> VALOR_NULL .)
+
+
+state 78
+
+    (30) valor_para_direccion -> APERTURA_OBJETO . CLAUSURA_OBJETO
+    (31) valor_para_direccion -> APERTURA_OBJETO . miembros_direccion CLAUSURA_OBJETO
+    (32) miembros_direccion -> . calle COMA ciudad COMA pais
+    (33) miembros_direccion -> . calle COMA pais COMA ciudad
+    (34) miembros_direccion -> . ciudad COMA calle COMA pais
+    (35) miembros_direccion -> . ciudad COMA pais COMA calle
+    (36) miembros_direccion -> . pais COMA calle COMA ciudad
+    (37) miembros_direccion -> . pais COMA ciudad COMA calle
+    (38) calle -> . CALLE DOS_PUNTOS VALOR_STRING
+    (39) calle -> . CALLE DOS_PUNTOS error
+    (40) ciudad -> . CIUDAD DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> . CIUDAD DOS_PUNTOS error
+    (42) pais -> . PAIS DOS_PUNTOS VALOR_STRING
+    (43) pais -> . PAIS DOS_PUNTOS error
+
+    CLAUSURA_OBJETO shift and go to state 89
+    CALLE           shift and go to state 94
+    CIUDAD          shift and go to state 95
+    PAIS            shift and go to state 96
+
+    miembros_direccion             shift and go to state 90
+    calle                          shift and go to state 91
+    ciudad                         shift and go to state 92
+    pais                           shift and go to state 93
+
+state 79
+
+    (44) link -> LINK DOS_PUNTOS VALOR_URL .
+
+    COMA            reduce using rule 44 (link -> LINK DOS_PUNTOS VALOR_URL .)
+
+
+state 80
+
+    (45) link -> LINK DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 45 (link -> LINK DOS_PUNTOS VALOR_NULL .)
+
+
+state 81
+
+    (46) link -> LINK DOS_PUNTOS error .
+
+    COMA            reduce using rule 46 (link -> LINK DOS_PUNTOS error .)
+
+
+state 82
+
+    (47) carrera -> CARRERA DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 47 (carrera -> CARRERA DOS_PUNTOS VALOR_STRING .)
+
+
+state 83
+
+    (48) carrera -> CARRERA DOS_PUNTOS error .
+
+    COMA            reduce using rule 48 (carrera -> CARRERA DOS_PUNTOS error .)
+
+
+state 84
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA . carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (47) carrera -> . CARRERA DOS_PUNTOS VALOR_STRING
+    (48) carrera -> . CARRERA DOS_PUNTOS error
+
+    CARRERA         shift and go to state 62
+
+    carrera                        shift and go to state 97
+
+state 85
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA . asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (49) asignatura -> . ASIGNATURA DOS_PUNTOS VALOR_STRING
+    (50) asignatura -> . ASIGNATURA DOS_PUNTOS error
+
+    ASIGNATURA      shift and go to state 75
+
+    asignatura                     shift and go to state 98
+
+state 86
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA . asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (49) asignatura -> . ASIGNATURA DOS_PUNTOS VALOR_STRING
+    (50) asignatura -> . ASIGNATURA DOS_PUNTOS error
+
+    ASIGNATURA      shift and go to state 75
+
+    asignatura                     shift and go to state 99
+
+state 87
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA . universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (51) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING
+    (52) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS error
+
+    UNIVERSIDAD_REGIONAL shift and go to state 101
+
+    universidad_regional           shift and go to state 100
+
+state 88
+
+    (49) asignatura -> ASIGNATURA DOS_PUNTOS . VALOR_STRING
+    (50) asignatura -> ASIGNATURA DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 102
+    error           shift and go to state 103
+
+
+state 89
+
+    (30) valor_para_direccion -> APERTURA_OBJETO CLAUSURA_OBJETO .
+
+    COMA            reduce using rule 30 (valor_para_direccion -> APERTURA_OBJETO CLAUSURA_OBJETO .)
+
+
+state 90
+
+    (31) valor_para_direccion -> APERTURA_OBJETO miembros_direccion . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 104
+
+
+state 91
+
+    (32) miembros_direccion -> calle . COMA ciudad COMA pais
+    (33) miembros_direccion -> calle . COMA pais COMA ciudad
+
+    COMA            shift and go to state 105
+
+
+state 92
+
+    (34) miembros_direccion -> ciudad . COMA calle COMA pais
+    (35) miembros_direccion -> ciudad . COMA pais COMA calle
+
+    COMA            shift and go to state 106
+
+
+state 93
+
+    (36) miembros_direccion -> pais . COMA calle COMA ciudad
+    (37) miembros_direccion -> pais . COMA ciudad COMA calle
+
+    COMA            shift and go to state 107
+
+
+state 94
+
+    (38) calle -> CALLE . DOS_PUNTOS VALOR_STRING
+    (39) calle -> CALLE . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 108
+
+
+state 95
+
+    (40) ciudad -> CIUDAD . DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> CIUDAD . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 109
+
+
+state 96
+
+    (42) pais -> PAIS . DOS_PUNTOS VALOR_STRING
+    (43) pais -> PAIS . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 110
+
+
+state 97
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera . COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 111
+
+
+state 98
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura . COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 112
+
+
+state 99
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura . COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 113
+
+
+state 100
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional . COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 114
+
+
+state 101
+
+    (51) universidad_regional -> UNIVERSIDAD_REGIONAL . DOS_PUNTOS VALOR_STRING
+    (52) universidad_regional -> UNIVERSIDAD_REGIONAL . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 115
+
+
+state 102
+
+    (49) asignatura -> ASIGNATURA DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 49 (asignatura -> ASIGNATURA DOS_PUNTOS VALOR_STRING .)
+
+
+state 103
+
+    (50) asignatura -> ASIGNATURA DOS_PUNTOS error .
+
+    COMA            reduce using rule 50 (asignatura -> ASIGNATURA DOS_PUNTOS error .)
+
+
+state 104
+
+    (31) valor_para_direccion -> APERTURA_OBJETO miembros_direccion CLAUSURA_OBJETO .
+
+    COMA            reduce using rule 31 (valor_para_direccion -> APERTURA_OBJETO miembros_direccion CLAUSURA_OBJETO .)
+
+
+state 105
+
+    (32) miembros_direccion -> calle COMA . ciudad COMA pais
+    (33) miembros_direccion -> calle COMA . pais COMA ciudad
+    (40) ciudad -> . CIUDAD DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> . CIUDAD DOS_PUNTOS error
+    (42) pais -> . PAIS DOS_PUNTOS VALOR_STRING
+    (43) pais -> . PAIS DOS_PUNTOS error
+
+    CIUDAD          shift and go to state 95
+    PAIS            shift and go to state 96
+
+    ciudad                         shift and go to state 116
+    pais                           shift and go to state 117
+
+state 106
+
+    (34) miembros_direccion -> ciudad COMA . calle COMA pais
+    (35) miembros_direccion -> ciudad COMA . pais COMA calle
+    (38) calle -> . CALLE DOS_PUNTOS VALOR_STRING
+    (39) calle -> . CALLE DOS_PUNTOS error
+    (42) pais -> . PAIS DOS_PUNTOS VALOR_STRING
+    (43) pais -> . PAIS DOS_PUNTOS error
+
+    CALLE           shift and go to state 94
+    PAIS            shift and go to state 96
+
+    calle                          shift and go to state 118
+    pais                           shift and go to state 119
+
+state 107
+
+    (36) miembros_direccion -> pais COMA . calle COMA ciudad
+    (37) miembros_direccion -> pais COMA . ciudad COMA calle
+    (38) calle -> . CALLE DOS_PUNTOS VALOR_STRING
+    (39) calle -> . CALLE DOS_PUNTOS error
+    (40) ciudad -> . CIUDAD DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> . CIUDAD DOS_PUNTOS error
+
+    CALLE           shift and go to state 94
+    CIUDAD          shift and go to state 95
+
+    calle                          shift and go to state 120
+    ciudad                         shift and go to state 121
+
+state 108
+
+    (38) calle -> CALLE DOS_PUNTOS . VALOR_STRING
+    (39) calle -> CALLE DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 122
+    error           shift and go to state 123
+
+
+state 109
+
+    (40) ciudad -> CIUDAD DOS_PUNTOS . VALOR_STRING
+    (41) ciudad -> CIUDAD DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 124
+    error           shift and go to state 125
+
+
+state 110
+
+    (42) pais -> PAIS DOS_PUNTOS . VALOR_STRING
+    (43) pais -> PAIS DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 126
+    error           shift and go to state 127
+
+
+state 111
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA . asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (49) asignatura -> . ASIGNATURA DOS_PUNTOS VALOR_STRING
+    (50) asignatura -> . ASIGNATURA DOS_PUNTOS error
+
+    ASIGNATURA      shift and go to state 75
+
+    asignatura                     shift and go to state 128
+
+state 112
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA . universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (51) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING
+    (52) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS error
+
+    UNIVERSIDAD_REGIONAL shift and go to state 101
+
+    universidad_regional           shift and go to state 129
+
+state 113
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA . universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (51) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING
+    (52) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS error
+
+    UNIVERSIDAD_REGIONAL shift and go to state 101
+
+    universidad_regional           shift and go to state 130
+
+state 114
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA . alianza_equipo COMA integrantes COMA proyectos
+    (53) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING
+    (54) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS error
+
+    ALIANZA_EQUIPO  shift and go to state 132
+
+    alianza_equipo                 shift and go to state 131
+
+state 115
+
+    (51) universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS . VALOR_STRING
+    (52) universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 133
+    error           shift and go to state 134
+
+
+state 116
+
+    (32) miembros_direccion -> calle COMA ciudad . COMA pais
+
+    COMA            shift and go to state 135
+
+
+state 117
+
+    (33) miembros_direccion -> calle COMA pais . COMA ciudad
+
+    COMA            shift and go to state 136
+
+
+state 118
+
+    (34) miembros_direccion -> ciudad COMA calle . COMA pais
+
+    COMA            shift and go to state 137
+
+
+state 119
+
+    (35) miembros_direccion -> ciudad COMA pais . COMA calle
+
+    COMA            shift and go to state 138
+
+
+state 120
+
+    (36) miembros_direccion -> pais COMA calle . COMA ciudad
+
+    COMA            shift and go to state 139
+
+
+state 121
+
+    (37) miembros_direccion -> pais COMA ciudad . COMA calle
+
+    COMA            shift and go to state 140
+
+
+state 122
+
+    (38) calle -> CALLE DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 38 (calle -> CALLE DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 38 (calle -> CALLE DOS_PUNTOS VALOR_STRING .)
+
+
+state 123
+
+    (39) calle -> CALLE DOS_PUNTOS error .
+
+    COMA            reduce using rule 39 (calle -> CALLE DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 39 (calle -> CALLE DOS_PUNTOS error .)
+
+
+state 124
+
+    (40) ciudad -> CIUDAD DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 40 (ciudad -> CIUDAD DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 40 (ciudad -> CIUDAD DOS_PUNTOS VALOR_STRING .)
+
+
+state 125
+
+    (41) ciudad -> CIUDAD DOS_PUNTOS error .
+
+    COMA            reduce using rule 41 (ciudad -> CIUDAD DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 41 (ciudad -> CIUDAD DOS_PUNTOS error .)
+
+
+state 126
+
+    (42) pais -> PAIS DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 42 (pais -> PAIS DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 42 (pais -> PAIS DOS_PUNTOS VALOR_STRING .)
+
+
+state 127
+
+    (43) pais -> PAIS DOS_PUNTOS error .
+
+    COMA            reduce using rule 43 (pais -> PAIS DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 43 (pais -> PAIS DOS_PUNTOS error .)
+
+
+state 128
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura . COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 141
+
+
+state 129
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional . COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 142
+
+
+state 130
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional . COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 143
+
+
+state 131
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo . COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 144
+
+
+state 132
+
+    (53) alianza_equipo -> ALIANZA_EQUIPO . DOS_PUNTOS VALOR_STRING
+    (54) alianza_equipo -> ALIANZA_EQUIPO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 145
+
+
+state 133
+
+    (51) universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 51 (universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING .)
+
+
+state 134
+
+    (52) universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS error .
+
+    COMA            reduce using rule 52 (universidad_regional -> UNIVERSIDAD_REGIONAL DOS_PUNTOS error .)
+
+
+state 135
+
+    (32) miembros_direccion -> calle COMA ciudad COMA . pais
+    (42) pais -> . PAIS DOS_PUNTOS VALOR_STRING
+    (43) pais -> . PAIS DOS_PUNTOS error
+
+    PAIS            shift and go to state 96
+
+    pais                           shift and go to state 146
+
+state 136
+
+    (33) miembros_direccion -> calle COMA pais COMA . ciudad
+    (40) ciudad -> . CIUDAD DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> . CIUDAD DOS_PUNTOS error
+
+    CIUDAD          shift and go to state 95
+
+    ciudad                         shift and go to state 147
+
+state 137
+
+    (34) miembros_direccion -> ciudad COMA calle COMA . pais
+    (42) pais -> . PAIS DOS_PUNTOS VALOR_STRING
+    (43) pais -> . PAIS DOS_PUNTOS error
+
+    PAIS            shift and go to state 96
+
+    pais                           shift and go to state 148
+
+state 138
+
+    (35) miembros_direccion -> ciudad COMA pais COMA . calle
+    (38) calle -> . CALLE DOS_PUNTOS VALOR_STRING
+    (39) calle -> . CALLE DOS_PUNTOS error
+
+    CALLE           shift and go to state 94
+
+    calle                          shift and go to state 149
+
+state 139
+
+    (36) miembros_direccion -> pais COMA calle COMA . ciudad
+    (40) ciudad -> . CIUDAD DOS_PUNTOS VALOR_STRING
+    (41) ciudad -> . CIUDAD DOS_PUNTOS error
+
+    CIUDAD          shift and go to state 95
+
+    ciudad                         shift and go to state 150
+
+state 140
+
+    (37) miembros_direccion -> pais COMA ciudad COMA . calle
+    (38) calle -> . CALLE DOS_PUNTOS VALOR_STRING
+    (39) calle -> . CALLE DOS_PUNTOS error
+
+    CALLE           shift and go to state 94
+
+    calle                          shift and go to state 151
+
+state 141
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA . universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos
+    (51) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS VALOR_STRING
+    (52) universidad_regional -> . UNIVERSIDAD_REGIONAL DOS_PUNTOS error
+
+    UNIVERSIDAD_REGIONAL shift and go to state 101
+
+    universidad_regional           shift and go to state 152
+
+state 142
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA . alianza_equipo COMA integrantes COMA proyectos
+    (53) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING
+    (54) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS error
+
+    ALIANZA_EQUIPO  shift and go to state 132
+
+    alianza_equipo                 shift and go to state 153
+
+state 143
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA . alianza_equipo COMA integrantes COMA proyectos
+    (53) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING
+    (54) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS error
+
+    ALIANZA_EQUIPO  shift and go to state 132
+
+    alianza_equipo                 shift and go to state 154
+
+state 144
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA . integrantes COMA proyectos
+    (55) integrantes -> . INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    INTEGRANTES     shift and go to state 156
+
+    integrantes                    shift and go to state 155
+
+state 145
+
+    (53) alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS . VALOR_STRING
+    (54) alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 157
+    error           shift and go to state 158
+
+
+state 146
+
+    (32) miembros_direccion -> calle COMA ciudad COMA pais .
+
+    CLAUSURA_OBJETO reduce using rule 32 (miembros_direccion -> calle COMA ciudad COMA pais .)
+
+
+state 147
+
+    (33) miembros_direccion -> calle COMA pais COMA ciudad .
+
+    CLAUSURA_OBJETO reduce using rule 33 (miembros_direccion -> calle COMA pais COMA ciudad .)
+
+
+state 148
+
+    (34) miembros_direccion -> ciudad COMA calle COMA pais .
+
+    CLAUSURA_OBJETO reduce using rule 34 (miembros_direccion -> ciudad COMA calle COMA pais .)
+
+
+state 149
+
+    (35) miembros_direccion -> ciudad COMA pais COMA calle .
+
+    CLAUSURA_OBJETO reduce using rule 35 (miembros_direccion -> ciudad COMA pais COMA calle .)
+
+
+state 150
+
+    (36) miembros_direccion -> pais COMA calle COMA ciudad .
+
+    CLAUSURA_OBJETO reduce using rule 36 (miembros_direccion -> pais COMA calle COMA ciudad .)
+
+
+state 151
+
+    (37) miembros_direccion -> pais COMA ciudad COMA calle .
+
+    CLAUSURA_OBJETO reduce using rule 37 (miembros_direccion -> pais COMA ciudad COMA calle .)
+
+
+state 152
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional . COMA alianza_equipo COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 159
+
+
+state 153
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo . COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 160
+
+
+state 154
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo . COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 161
+
+
+state 155
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes . COMA proyectos
+
+    COMA            shift and go to state 162
+
+
+state 156
+
+    (55) integrantes -> INTEGRANTES . DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    DOS_PUNTOS      shift and go to state 163
+
+
+state 157
+
+    (53) alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 53 (alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING .)
+
+
+state 158
+
+    (54) alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS error .
+
+    COMA            reduce using rule 54 (alianza_equipo -> ALIANZA_EQUIPO DOS_PUNTOS error .)
+
+
+state 159
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA . alianza_equipo COMA integrantes COMA proyectos
+    (53) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS VALOR_STRING
+    (54) alianza_equipo -> . ALIANZA_EQUIPO DOS_PUNTOS error
+
+    ALIANZA_EQUIPO  shift and go to state 132
+
+    alianza_equipo                 shift and go to state 164
+
+state 160
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA . integrantes COMA proyectos
+    (55) integrantes -> . INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    INTEGRANTES     shift and go to state 156
+
+    integrantes                    shift and go to state 165
+
+state 161
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA . integrantes COMA proyectos
+    (55) integrantes -> . INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    INTEGRANTES     shift and go to state 156
+
+    integrantes                    shift and go to state 166
+
+state 162
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA . proyectos
+    (79) proyectos -> . PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    PROYECTOS       shift and go to state 168
+
+    proyectos                      shift and go to state 167
+
+state 163
+
+    (55) integrantes -> INTEGRANTES DOS_PUNTOS . APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    APERTURA_LISTA  shift and go to state 169
+
+
+state 164
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo . COMA integrantes COMA proyectos
+
+    COMA            shift and go to state 170
+
+
+state 165
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes . COMA proyectos
+
+    COMA            shift and go to state 171
+
+
+state 166
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes . COMA proyectos
+
+    COMA            shift and go to state 172
+
+
+state 167
+
+    (23) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .
+
+    CLAUSURA_OBJETO reduce using rule 23 (miembros_equipo -> nombre_equipo COMA identidad_equipo COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .)
+
+
+state 168
+
+    (79) proyectos -> PROYECTOS . DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    DOS_PUNTOS      shift and go to state 173
+
+
+state 169
+
+    (55) integrantes -> INTEGRANTES DOS_PUNTOS APERTURA_LISTA . lista_integrantes CLAUSURA_LISTA
+    (56) lista_integrantes -> . integrante_objeto COMA lista_integrantes
+    (57) lista_integrantes -> . integrante_objeto
+    (58) integrante_objeto -> . APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 176
+
+    lista_integrantes              shift and go to state 174
+    integrante_objeto              shift and go to state 175
+
+state 170
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA . integrantes COMA proyectos
+    (55) integrantes -> . INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA
+
+    INTEGRANTES     shift and go to state 156
+
+    integrantes                    shift and go to state 177
+
+state 171
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA . proyectos
+    (79) proyectos -> . PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    PROYECTOS       shift and go to state 168
+
+    proyectos                      shift and go to state 178
+
+state 172
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA . proyectos
+    (79) proyectos -> . PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    PROYECTOS       shift and go to state 168
+
+    proyectos                      shift and go to state 179
+
+state 173
+
+    (79) proyectos -> PROYECTOS DOS_PUNTOS . APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    APERTURA_LISTA  shift and go to state 180
+
+
+state 174
+
+    (55) integrantes -> INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes . CLAUSURA_LISTA
+
+    CLAUSURA_LISTA  shift and go to state 181
+
+
+state 175
+
+    (56) lista_integrantes -> integrante_objeto . COMA lista_integrantes
+    (57) lista_integrantes -> integrante_objeto .
+
+    COMA            shift and go to state 182
+    CLAUSURA_LISTA  reduce using rule 57 (lista_integrantes -> integrante_objeto .)
+
+
+state 176
+
+    (58) integrante_objeto -> APERTURA_OBJETO . miembros_integrante CLAUSURA_OBJETO
+    (59) miembros_integrante -> . nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (60) miembros_integrante -> . nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (61) nombre_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (62) nombre_par -> . NOMBRE DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 185
+
+    miembros_integrante            shift and go to state 183
+    nombre_par                     shift and go to state 184
+
+state 177
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes . COMA proyectos
+
+    COMA            shift and go to state 186
+
+
+state 178
+
+    (21) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .
+
+    CLAUSURA_OBJETO reduce using rule 21 (miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .)
+
+
+state 179
+
+    (22) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .
+
+    CLAUSURA_OBJETO reduce using rule 22 (miembros_equipo -> nombre_equipo COMA identidad_equipo COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .)
+
+
+state 180
+
+    (79) proyectos -> PROYECTOS DOS_PUNTOS APERTURA_LISTA . lista_proyectos CLAUSURA_LISTA
+    (80) lista_proyectos -> . proyecto_objeto COMA lista_proyectos
+    (81) lista_proyectos -> . proyecto_objeto
+    (82) proyecto_objeto -> . APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 189
+
+    lista_proyectos                shift and go to state 187
+    proyecto_objeto                shift and go to state 188
+
+state 181
+
+    (55) integrantes -> INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA .
+
+    COMA            reduce using rule 55 (integrantes -> INTEGRANTES DOS_PUNTOS APERTURA_LISTA lista_integrantes CLAUSURA_LISTA .)
+
+
+state 182
+
+    (56) lista_integrantes -> integrante_objeto COMA . lista_integrantes
+    (56) lista_integrantes -> . integrante_objeto COMA lista_integrantes
+    (57) lista_integrantes -> . integrante_objeto
+    (58) integrante_objeto -> . APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 176
+
+    integrante_objeto              shift and go to state 175
+    lista_integrantes              shift and go to state 190
+
+state 183
+
+    (58) integrante_objeto -> APERTURA_OBJETO miembros_integrante . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 191
+
+
+state 184
+
+    (59) miembros_integrante -> nombre_par . COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (60) miembros_integrante -> nombre_par . COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 192
+
+
+state 185
+
+    (61) nombre_par -> NOMBRE . DOS_PUNTOS VALOR_STRING
+    (62) nombre_par -> NOMBRE . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 193
+
+
+state 186
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA . proyectos
+    (79) proyectos -> . PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA
+
+    PROYECTOS       shift and go to state 168
+
+    proyectos                      shift and go to state 194
+
+state 187
+
+    (79) proyectos -> PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos . CLAUSURA_LISTA
+
+    CLAUSURA_LISTA  shift and go to state 195
+
+
+state 188
+
+    (80) lista_proyectos -> proyecto_objeto . COMA lista_proyectos
+    (81) lista_proyectos -> proyecto_objeto .
+
+    COMA            shift and go to state 196
+    CLAUSURA_LISTA  reduce using rule 81 (lista_proyectos -> proyecto_objeto .)
+
+
+state 189
+
+    (82) proyecto_objeto -> APERTURA_OBJETO . miembros_proyecto CLAUSURA_OBJETO
+    (83) miembros_proyecto -> . nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (84) nombre_proyecto_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (85) nombre_proyecto_par -> . NOMBRE DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 199
+
+    miembros_proyecto              shift and go to state 197
+    nombre_proyecto_par            shift and go to state 198
+
+state 190
+
+    (56) lista_integrantes -> integrante_objeto COMA lista_integrantes .
+
+    CLAUSURA_LISTA  reduce using rule 56 (lista_integrantes -> integrante_objeto COMA lista_integrantes .)
+
+
+state 191
+
+    (58) integrante_objeto -> APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO .
+
+    COMA            reduce using rule 58 (integrante_objeto -> APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO .)
+    CLAUSURA_LISTA  reduce using rule 58 (integrante_objeto -> APERTURA_OBJETO miembros_integrante CLAUSURA_OBJETO .)
+
+
+state 192
+
+    (59) miembros_integrante -> nombre_par COMA . edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (60) miembros_integrante -> nombre_par COMA . cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (63) edad_par -> . EDAD DOS_PUNTOS VALOR_ENTERO
+    (64) edad_par -> . EDAD DOS_PUNTOS VALOR_NULL
+    (65) edad_par -> . EDAD DOS_PUNTOS error
+    (66) cargo_par -> . CARGO DOS_PUNTOS VALOR_STRING
+    (67) cargo_par -> . CARGO DOS_PUNTOS error
+
+    EDAD            shift and go to state 202
+    CARGO           shift and go to state 203
+
+    edad_par                       shift and go to state 200
+    cargo_par                      shift and go to state 201
+
+state 193
+
+    (61) nombre_par -> NOMBRE DOS_PUNTOS . VALOR_STRING
+    (62) nombre_par -> NOMBRE DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 204
+    error           shift and go to state 205
+
+
+state 194
+
+    (20) miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .
+
+    CLAUSURA_OBJETO reduce using rule 20 (miembros_equipo -> nombre_equipo COMA identidad_equipo COMA direccion COMA link COMA carrera COMA asignatura COMA universidad_regional COMA alianza_equipo COMA integrantes COMA proyectos .)
+
+
+state 195
+
+    (79) proyectos -> PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA .
+
+    CLAUSURA_OBJETO reduce using rule 79 (proyectos -> PROYECTOS DOS_PUNTOS APERTURA_LISTA lista_proyectos CLAUSURA_LISTA .)
+
+
+state 196
+
+    (80) lista_proyectos -> proyecto_objeto COMA . lista_proyectos
+    (80) lista_proyectos -> . proyecto_objeto COMA lista_proyectos
+    (81) lista_proyectos -> . proyecto_objeto
+    (82) proyecto_objeto -> . APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 189
+
+    proyecto_objeto                shift and go to state 188
+    lista_proyectos                shift and go to state 206
+
+state 197
+
+    (82) proyecto_objeto -> APERTURA_OBJETO miembros_proyecto . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 207
+
+
+state 198
+
+    (83) miembros_proyecto -> nombre_proyecto_par . COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 208
+
+
+state 199
+
+    (84) nombre_proyecto_par -> NOMBRE . DOS_PUNTOS VALOR_STRING
+    (85) nombre_proyecto_par -> NOMBRE . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 209
+
+
+state 200
+
+    (59) miembros_integrante -> nombre_par COMA edad_par . COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 210
+
+
+state 201
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par . COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 211
+
+
+state 202
+
+    (63) edad_par -> EDAD . DOS_PUNTOS VALOR_ENTERO
+    (64) edad_par -> EDAD . DOS_PUNTOS VALOR_NULL
+    (65) edad_par -> EDAD . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 212
+
+
+state 203
+
+    (66) cargo_par -> CARGO . DOS_PUNTOS VALOR_STRING
+    (67) cargo_par -> CARGO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 213
+
+
+state 204
+
+    (61) nombre_par -> NOMBRE DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 61 (nombre_par -> NOMBRE DOS_PUNTOS VALOR_STRING .)
+
+
+state 205
+
+    (62) nombre_par -> NOMBRE DOS_PUNTOS error .
+
+    COMA            reduce using rule 62 (nombre_par -> NOMBRE DOS_PUNTOS error .)
+
+
+state 206
+
+    (80) lista_proyectos -> proyecto_objeto COMA lista_proyectos .
+
+    CLAUSURA_LISTA  reduce using rule 80 (lista_proyectos -> proyecto_objeto COMA lista_proyectos .)
+
+
+state 207
+
+    (82) proyecto_objeto -> APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO .
+
+    COMA            reduce using rule 82 (proyecto_objeto -> APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO .)
+    CLAUSURA_LISTA  reduce using rule 82 (proyecto_objeto -> APERTURA_OBJETO miembros_proyecto CLAUSURA_OBJETO .)
+
+
+state 208
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA . estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (86) estado_proyecto_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (87) estado_proyecto_par -> . ESTADO DOS_PUNTOS error
+
+    ESTADO          shift and go to state 215
+
+    estado_proyecto_par            shift and go to state 214
+
+state 209
+
+    (84) nombre_proyecto_par -> NOMBRE DOS_PUNTOS . VALOR_STRING
+    (85) nombre_proyecto_par -> NOMBRE DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 216
+    error           shift and go to state 217
+
+
+state 210
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA . cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (66) cargo_par -> . CARGO DOS_PUNTOS VALOR_STRING
+    (67) cargo_par -> . CARGO DOS_PUNTOS error
+
+    CARGO           shift and go to state 203
+
+    cargo_par                      shift and go to state 218
+
+state 211
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA . foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (68) foto_par -> . FOTO DOS_PUNTOS VALOR_URL
+    (69) foto_par -> . FOTO DOS_PUNTOS error
+
+    FOTO            shift and go to state 220
+
+    foto_par                       shift and go to state 219
+
+state 212
+
+    (63) edad_par -> EDAD DOS_PUNTOS . VALOR_ENTERO
+    (64) edad_par -> EDAD DOS_PUNTOS . VALOR_NULL
+    (65) edad_par -> EDAD DOS_PUNTOS . error
+
+    VALOR_ENTERO    shift and go to state 221
+    VALOR_NULL      shift and go to state 222
+    error           shift and go to state 223
+
+
+state 213
+
+    (66) cargo_par -> CARGO DOS_PUNTOS . VALOR_STRING
+    (67) cargo_par -> CARGO DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 224
+    error           shift and go to state 225
+
+
+state 214
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par . COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 226
+
+
+state 215
+
+    (86) estado_proyecto_par -> ESTADO . DOS_PUNTOS VALOR_STRING
+    (87) estado_proyecto_par -> ESTADO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 227
+
+
+state 216
+
+    (84) nombre_proyecto_par -> NOMBRE DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 84 (nombre_proyecto_par -> NOMBRE DOS_PUNTOS VALOR_STRING .)
+
+
+state 217
+
+    (85) nombre_proyecto_par -> NOMBRE DOS_PUNTOS error .
+
+    COMA            reduce using rule 85 (nombre_proyecto_par -> NOMBRE DOS_PUNTOS error .)
+
+
+state 218
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par . COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 228
+
+
+state 219
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par . COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 229
+
+
+state 220
+
+    (68) foto_par -> FOTO . DOS_PUNTOS VALOR_URL
+    (69) foto_par -> FOTO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 230
+
+
+state 221
+
+    (63) edad_par -> EDAD DOS_PUNTOS VALOR_ENTERO .
+
+    COMA            reduce using rule 63 (edad_par -> EDAD DOS_PUNTOS VALOR_ENTERO .)
+
+
+state 222
+
+    (64) edad_par -> EDAD DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 64 (edad_par -> EDAD DOS_PUNTOS VALOR_NULL .)
+
+
+state 223
+
+    (65) edad_par -> EDAD DOS_PUNTOS error .
+
+    COMA            reduce using rule 65 (edad_par -> EDAD DOS_PUNTOS error .)
+
+
+state 224
+
+    (66) cargo_par -> CARGO DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 66 (cargo_par -> CARGO DOS_PUNTOS VALOR_STRING .)
+
+
+state 225
+
+    (67) cargo_par -> CARGO DOS_PUNTOS error .
+
+    COMA            reduce using rule 67 (cargo_par -> CARGO DOS_PUNTOS error .)
+
+
+state 226
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA . resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (88) resumen_proyecto_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (89) resumen_proyecto_par -> . RESUMEN DOS_PUNTOS error
+
+    RESUMEN         shift and go to state 232
+
+    resumen_proyecto_par           shift and go to state 231
+
+state 227
+
+    (86) estado_proyecto_par -> ESTADO DOS_PUNTOS . VALOR_STRING
+    (87) estado_proyecto_par -> ESTADO DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 233
+    error           shift and go to state 234
+
+
+state 228
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA . foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (68) foto_par -> . FOTO DOS_PUNTOS VALOR_URL
+    (69) foto_par -> . FOTO DOS_PUNTOS error
+
+    FOTO            shift and go to state 220
+
+    foto_par                       shift and go to state 235
+
+state 229
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA . email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (70) email_par -> . EMAIL DOS_PUNTOS EMAIL
+    (71) email_par -> . EMAIL DOS_PUNTOS error
+
+    EMAIL           shift and go to state 237
+
+    email_par                      shift and go to state 236
+
+state 230
+
+    (68) foto_par -> FOTO DOS_PUNTOS . VALOR_URL
+    (69) foto_par -> FOTO DOS_PUNTOS . error
+
+    VALOR_URL       shift and go to state 238
+    error           shift and go to state 239
+
+
+state 231
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par . COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 240
+
+
+state 232
+
+    (88) resumen_proyecto_par -> RESUMEN . DOS_PUNTOS VALOR_STRING
+    (89) resumen_proyecto_par -> RESUMEN . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 241
+
+
+state 233
+
+    (86) estado_proyecto_par -> ESTADO DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 86 (estado_proyecto_par -> ESTADO DOS_PUNTOS VALOR_STRING .)
+
+
+state 234
+
+    (87) estado_proyecto_par -> ESTADO DOS_PUNTOS error .
+
+    COMA            reduce using rule 87 (estado_proyecto_par -> ESTADO DOS_PUNTOS error .)
+
+
+state 235
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par . COMA email_par COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 242
+
+
+state 236
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par . COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 243
+
+
+state 237
+
+    (70) email_par -> EMAIL . DOS_PUNTOS EMAIL
+    (71) email_par -> EMAIL . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 244
+
+
+state 238
+
+    (68) foto_par -> FOTO DOS_PUNTOS VALOR_URL .
+
+    COMA            reduce using rule 68 (foto_par -> FOTO DOS_PUNTOS VALOR_URL .)
+
+
+state 239
+
+    (69) foto_par -> FOTO DOS_PUNTOS error .
+
+    COMA            reduce using rule 69 (foto_par -> FOTO DOS_PUNTOS error .)
+
+
+state 240
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA . tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (90) tareas_proyecto_par -> . TAREAS DOS_PUNTOS APERTURA_LISTA lista_tareas CLAUSURA_LISTA
+
+    TAREAS          shift and go to state 246
+
+    tareas_proyecto_par            shift and go to state 245
+
+state 241
+
+    (88) resumen_proyecto_par -> RESUMEN DOS_PUNTOS . VALOR_STRING
+    (89) resumen_proyecto_par -> RESUMEN DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 247
+    error           shift and go to state 248
+
+
+state 242
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA . email_par COMA habilidades_par COMA salario_par COMA activo_par
+    (70) email_par -> . EMAIL DOS_PUNTOS EMAIL
+    (71) email_par -> . EMAIL DOS_PUNTOS error
+
+    EMAIL           shift and go to state 237
+
+    email_par                      shift and go to state 249
+
+state 243
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA . habilidades_par COMA salario_par COMA activo_par
+    (72) habilidades_par -> . HABILIDADES DOS_PUNTOS VALOR_STRING
+    (73) habilidades_par -> . HABILIDADES DOS_PUNTOS error
+
+    HABILIDADES     shift and go to state 251
+
+    habilidades_par                shift and go to state 250
+
+state 244
+
+    (70) email_par -> EMAIL DOS_PUNTOS . EMAIL
+    (71) email_par -> EMAIL DOS_PUNTOS . error
+
+    EMAIL           shift and go to state 252
+    error           shift and go to state 253
+
+
+state 245
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par . COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 254
+
+
+state 246
+
+    (90) tareas_proyecto_par -> TAREAS . DOS_PUNTOS APERTURA_LISTA lista_tareas CLAUSURA_LISTA
+
+    DOS_PUNTOS      shift and go to state 255
+
+
+state 247
+
+    (88) resumen_proyecto_par -> RESUMEN DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 88 (resumen_proyecto_par -> RESUMEN DOS_PUNTOS VALOR_STRING .)
+
+
+state 248
+
+    (89) resumen_proyecto_par -> RESUMEN DOS_PUNTOS error .
+
+    COMA            reduce using rule 89 (resumen_proyecto_par -> RESUMEN DOS_PUNTOS error .)
+
+
+state 249
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par . COMA habilidades_par COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 256
+
+
+state 250
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par . COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 257
+
+
+state 251
+
+    (72) habilidades_par -> HABILIDADES . DOS_PUNTOS VALOR_STRING
+    (73) habilidades_par -> HABILIDADES . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 258
+
+
+state 252
+
+    (70) email_par -> EMAIL DOS_PUNTOS EMAIL .
+
+    COMA            reduce using rule 70 (email_par -> EMAIL DOS_PUNTOS EMAIL .)
+
+
+state 253
+
+    (71) email_par -> EMAIL DOS_PUNTOS error .
+
+    COMA            reduce using rule 71 (email_par -> EMAIL DOS_PUNTOS error .)
+
+
+state 254
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA . fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (118) fecha_inicio_proyecto_par -> . FECHA_INICIO DOS_PUNTOS VALOR_FECHA
+    (119) fecha_inicio_proyecto_par -> . FECHA_INICIO DOS_PUNTOS error
+
+    FECHA_INICIO    shift and go to state 260
+
+    fecha_inicio_proyecto_par      shift and go to state 259
+
+state 255
+
+    (90) tareas_proyecto_par -> TAREAS DOS_PUNTOS . APERTURA_LISTA lista_tareas CLAUSURA_LISTA
+
+    APERTURA_LISTA  shift and go to state 261
+
+
+state 256
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA . habilidades_par COMA salario_par COMA activo_par
+    (72) habilidades_par -> . HABILIDADES DOS_PUNTOS VALOR_STRING
+    (73) habilidades_par -> . HABILIDADES DOS_PUNTOS error
+
+    HABILIDADES     shift and go to state 251
+
+    habilidades_par                shift and go to state 262
+
+state 257
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA . salario_par COMA activo_par
+    (74) salario_par -> . SALARIO DOS_PUNTOS VALOR_REAL
+    (75) salario_par -> . SALARIO DOS_PUNTOS VALOR_ENTERO
+    (76) salario_par -> . SALARIO DOS_PUNTOS error
+
+    SALARIO         shift and go to state 264
+
+    salario_par                    shift and go to state 263
+
+state 258
+
+    (72) habilidades_par -> HABILIDADES DOS_PUNTOS . VALOR_STRING
+    (73) habilidades_par -> HABILIDADES DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 265
+    error           shift and go to state 266
+
+
+state 259
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par . COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 267
+
+
+state 260
+
+    (118) fecha_inicio_proyecto_par -> FECHA_INICIO . DOS_PUNTOS VALOR_FECHA
+    (119) fecha_inicio_proyecto_par -> FECHA_INICIO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 268
+
+
+state 261
+
+    (90) tareas_proyecto_par -> TAREAS DOS_PUNTOS APERTURA_LISTA . lista_tareas CLAUSURA_LISTA
+    (91) lista_tareas -> . tarea_objeto COMA lista_tareas
+    (92) lista_tareas -> . tarea_objeto
+    (93) tarea_objeto -> . APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 271
+
+    lista_tareas                   shift and go to state 269
+    tarea_objeto                   shift and go to state 270
+
+state 262
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par . COMA salario_par COMA activo_par
+
+    COMA            shift and go to state 272
+
+
+state 263
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par . COMA activo_par
+
+    COMA            shift and go to state 273
+
+
+state 264
+
+    (74) salario_par -> SALARIO . DOS_PUNTOS VALOR_REAL
+    (75) salario_par -> SALARIO . DOS_PUNTOS VALOR_ENTERO
+    (76) salario_par -> SALARIO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 274
+
+
+state 265
+
+    (72) habilidades_par -> HABILIDADES DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 72 (habilidades_par -> HABILIDADES DOS_PUNTOS VALOR_STRING .)
+
+
+state 266
+
+    (73) habilidades_par -> HABILIDADES DOS_PUNTOS error .
+
+    COMA            reduce using rule 73 (habilidades_par -> HABILIDADES DOS_PUNTOS error .)
+
+
+state 267
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA . fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par
+    (120) fecha_fin_proyecto_par -> . FECHA_FIN DOS_PUNTOS VALOR_FECHA
+    (121) fecha_fin_proyecto_par -> . FECHA_FIN DOS_PUNTOS error
+
+    FECHA_FIN       shift and go to state 276
+
+    fecha_fin_proyecto_par         shift and go to state 275
+
+state 268
+
+    (118) fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS . VALOR_FECHA
+    (119) fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS . error
+
+    VALOR_FECHA     shift and go to state 277
+    error           shift and go to state 278
+
+
+state 269
+
+    (90) tareas_proyecto_par -> TAREAS DOS_PUNTOS APERTURA_LISTA lista_tareas . CLAUSURA_LISTA
+
+    CLAUSURA_LISTA  shift and go to state 279
+
+
+state 270
+
+    (91) lista_tareas -> tarea_objeto . COMA lista_tareas
+    (92) lista_tareas -> tarea_objeto .
+
+    COMA            shift and go to state 280
+    CLAUSURA_LISTA  reduce using rule 92 (lista_tareas -> tarea_objeto .)
+
+
+state 271
+
+    (93) tarea_objeto -> APERTURA_OBJETO . miembros_tarea CLAUSURA_OBJETO
+    (94) miembros_tarea -> . miembros_obligatorios_tarea
+    (95) miembros_tarea -> . miembros_obligatorios_tarea COMA miembros_opcionales_tarea
+    (96) miembros_obligatorios_tarea -> . nombre_tarea_par COMA estado_tarea_par COMA resumen_tarea_par
+    (97) miembros_obligatorios_tarea -> . nombre_tarea_par COMA resumen_tarea_par COMA estado_tarea_par
+    (98) miembros_obligatorios_tarea -> . estado_tarea_par COMA nombre_tarea_par COMA resumen_tarea_par
+    (99) miembros_obligatorios_tarea -> . estado_tarea_par COMA resumen_tarea_par COMA nombre_tarea_par
+    (100) miembros_obligatorios_tarea -> . resumen_tarea_par COMA nombre_tarea_par COMA estado_tarea_par
+    (101) miembros_obligatorios_tarea -> . resumen_tarea_par COMA estado_tarea_par COMA nombre_tarea_par
+    (106) nombre_tarea_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> . NOMBRE DOS_PUNTOS error
+    (108) estado_tarea_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> . ESTADO DOS_PUNTOS error
+    (110) resumen_tarea_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> . RESUMEN DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 286
+    ESTADO          shift and go to state 287
+    RESUMEN         shift and go to state 288
+
+    miembros_tarea                 shift and go to state 281
+    miembros_obligatorios_tarea    shift and go to state 282
+    nombre_tarea_par               shift and go to state 283
+    estado_tarea_par               shift and go to state 284
+    resumen_tarea_par              shift and go to state 285
+
+state 272
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA . salario_par COMA activo_par
+    (74) salario_par -> . SALARIO DOS_PUNTOS VALOR_REAL
+    (75) salario_par -> . SALARIO DOS_PUNTOS VALOR_ENTERO
+    (76) salario_par -> . SALARIO DOS_PUNTOS error
+
+    SALARIO         shift and go to state 264
+
+    salario_par                    shift and go to state 289
+
+state 273
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA . activo_par
+    (77) activo_par -> . ACTIVO DOS_PUNTOS VALOR_BOOL
+    (78) activo_par -> . ACTIVO DOS_PUNTOS error
+
+    ACTIVO          shift and go to state 291
+
+    activo_par                     shift and go to state 290
+
+state 274
+
+    (74) salario_par -> SALARIO DOS_PUNTOS . VALOR_REAL
+    (75) salario_par -> SALARIO DOS_PUNTOS . VALOR_ENTERO
+    (76) salario_par -> SALARIO DOS_PUNTOS . error
+
+    VALOR_REAL      shift and go to state 292
+    VALOR_ENTERO    shift and go to state 293
+    error           shift and go to state 294
+
+
+state 275
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par . COMA video_proyecto_par COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 295
+
+
+state 276
+
+    (120) fecha_fin_proyecto_par -> FECHA_FIN . DOS_PUNTOS VALOR_FECHA
+    (121) fecha_fin_proyecto_par -> FECHA_FIN . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 296
+
+
+state 277
+
+    (118) fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA .
+
+    COMA            reduce using rule 118 (fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA .)
+
+
+state 278
+
+    (119) fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS error .
+
+    COMA            reduce using rule 119 (fecha_inicio_proyecto_par -> FECHA_INICIO DOS_PUNTOS error .)
+
+
+state 279
+
+    (90) tareas_proyecto_par -> TAREAS DOS_PUNTOS APERTURA_LISTA lista_tareas CLAUSURA_LISTA .
+
+    COMA            reduce using rule 90 (tareas_proyecto_par -> TAREAS DOS_PUNTOS APERTURA_LISTA lista_tareas CLAUSURA_LISTA .)
+
+
+state 280
+
+    (91) lista_tareas -> tarea_objeto COMA . lista_tareas
+    (91) lista_tareas -> . tarea_objeto COMA lista_tareas
+    (92) lista_tareas -> . tarea_objeto
+    (93) tarea_objeto -> . APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO
+
+    APERTURA_OBJETO shift and go to state 271
+
+    tarea_objeto                   shift and go to state 270
+    lista_tareas                   shift and go to state 297
+
+state 281
+
+    (93) tarea_objeto -> APERTURA_OBJETO miembros_tarea . CLAUSURA_OBJETO
+
+    CLAUSURA_OBJETO shift and go to state 298
+
+
+state 282
+
+    (94) miembros_tarea -> miembros_obligatorios_tarea .
+    (95) miembros_tarea -> miembros_obligatorios_tarea . COMA miembros_opcionales_tarea
+
+    CLAUSURA_OBJETO reduce using rule 94 (miembros_tarea -> miembros_obligatorios_tarea .)
+    COMA            shift and go to state 299
+
+
+state 283
+
+    (96) miembros_obligatorios_tarea -> nombre_tarea_par . COMA estado_tarea_par COMA resumen_tarea_par
+    (97) miembros_obligatorios_tarea -> nombre_tarea_par . COMA resumen_tarea_par COMA estado_tarea_par
+
+    COMA            shift and go to state 300
+
+
+state 284
+
+    (98) miembros_obligatorios_tarea -> estado_tarea_par . COMA nombre_tarea_par COMA resumen_tarea_par
+    (99) miembros_obligatorios_tarea -> estado_tarea_par . COMA resumen_tarea_par COMA nombre_tarea_par
+
+    COMA            shift and go to state 301
+
+
+state 285
+
+    (100) miembros_obligatorios_tarea -> resumen_tarea_par . COMA nombre_tarea_par COMA estado_tarea_par
+    (101) miembros_obligatorios_tarea -> resumen_tarea_par . COMA estado_tarea_par COMA nombre_tarea_par
+
+    COMA            shift and go to state 302
+
+
+state 286
+
+    (106) nombre_tarea_par -> NOMBRE . DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> NOMBRE . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 303
+
+
+state 287
+
+    (108) estado_tarea_par -> ESTADO . DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> ESTADO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 304
+
+
+state 288
+
+    (110) resumen_tarea_par -> RESUMEN . DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> RESUMEN . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 305
+
+
+state 289
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par . COMA activo_par
+
+    COMA            shift and go to state 306
+
+
+state 290
+
+    (60) miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par .
+
+    CLAUSURA_OBJETO reduce using rule 60 (miembros_integrante -> nombre_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par .)
+
+
+state 291
+
+    (77) activo_par -> ACTIVO . DOS_PUNTOS VALOR_BOOL
+    (78) activo_par -> ACTIVO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 307
+
+
+state 292
+
+    (74) salario_par -> SALARIO DOS_PUNTOS VALOR_REAL .
+
+    COMA            reduce using rule 74 (salario_par -> SALARIO DOS_PUNTOS VALOR_REAL .)
+
+
+state 293
+
+    (75) salario_par -> SALARIO DOS_PUNTOS VALOR_ENTERO .
+
+    COMA            reduce using rule 75 (salario_par -> SALARIO DOS_PUNTOS VALOR_ENTERO .)
+
+
+state 294
+
+    (76) salario_par -> SALARIO DOS_PUNTOS error .
+
+    COMA            reduce using rule 76 (salario_par -> SALARIO DOS_PUNTOS error .)
+
+
+state 295
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA . video_proyecto_par COMA conclusion_proyecto_par
+    (122) video_proyecto_par -> . VIDEO DOS_PUNTOS VALOR_URL
+    (123) video_proyecto_par -> . VIDEO DOS_PUNTOS error
+
+    VIDEO           shift and go to state 309
+
+    video_proyecto_par             shift and go to state 308
+
+state 296
+
+    (120) fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS . VALOR_FECHA
+    (121) fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS . error
+
+    VALOR_FECHA     shift and go to state 310
+    error           shift and go to state 311
+
+
+state 297
+
+    (91) lista_tareas -> tarea_objeto COMA lista_tareas .
+
+    CLAUSURA_LISTA  reduce using rule 91 (lista_tareas -> tarea_objeto COMA lista_tareas .)
+
+
+state 298
+
+    (93) tarea_objeto -> APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO .
+
+    COMA            reduce using rule 93 (tarea_objeto -> APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO .)
+    CLAUSURA_LISTA  reduce using rule 93 (tarea_objeto -> APERTURA_OBJETO miembros_tarea CLAUSURA_OBJETO .)
+
+
+state 299
+
+    (95) miembros_tarea -> miembros_obligatorios_tarea COMA . miembros_opcionales_tarea
+    (102) miembros_opcionales_tarea -> . fecha_inicio_tarea_par COMA fecha_fin_tarea_par
+    (103) miembros_opcionales_tarea -> . fecha_fin_tarea_par COMA fecha_inicio_tarea_par
+    (104) miembros_opcionales_tarea -> . fecha_inicio_tarea_par
+    (105) miembros_opcionales_tarea -> . fecha_fin_tarea_par
+    (112) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS VALOR_FECHA
+    (113) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS VALOR_NULL
+    (114) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS error
+    (115) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS VALOR_FECHA
+    (116) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS VALOR_NULL
+    (117) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS error
+
+    FECHA_INICIO    shift and go to state 315
+    FECHA_FIN       shift and go to state 316
+
+    miembros_opcionales_tarea      shift and go to state 312
+    fecha_inicio_tarea_par         shift and go to state 313
+    fecha_fin_tarea_par            shift and go to state 314
+
+state 300
+
+    (96) miembros_obligatorios_tarea -> nombre_tarea_par COMA . estado_tarea_par COMA resumen_tarea_par
+    (97) miembros_obligatorios_tarea -> nombre_tarea_par COMA . resumen_tarea_par COMA estado_tarea_par
+    (108) estado_tarea_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> . ESTADO DOS_PUNTOS error
+    (110) resumen_tarea_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> . RESUMEN DOS_PUNTOS error
+
+    ESTADO          shift and go to state 287
+    RESUMEN         shift and go to state 288
+
+    estado_tarea_par               shift and go to state 317
+    resumen_tarea_par              shift and go to state 318
+
+state 301
+
+    (98) miembros_obligatorios_tarea -> estado_tarea_par COMA . nombre_tarea_par COMA resumen_tarea_par
+    (99) miembros_obligatorios_tarea -> estado_tarea_par COMA . resumen_tarea_par COMA nombre_tarea_par
+    (106) nombre_tarea_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> . NOMBRE DOS_PUNTOS error
+    (110) resumen_tarea_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> . RESUMEN DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 286
+    RESUMEN         shift and go to state 288
+
+    nombre_tarea_par               shift and go to state 319
+    resumen_tarea_par              shift and go to state 320
+
+state 302
+
+    (100) miembros_obligatorios_tarea -> resumen_tarea_par COMA . nombre_tarea_par COMA estado_tarea_par
+    (101) miembros_obligatorios_tarea -> resumen_tarea_par COMA . estado_tarea_par COMA nombre_tarea_par
+    (106) nombre_tarea_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> . NOMBRE DOS_PUNTOS error
+    (108) estado_tarea_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> . ESTADO DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 286
+    ESTADO          shift and go to state 287
+
+    nombre_tarea_par               shift and go to state 321
+    estado_tarea_par               shift and go to state 322
+
+state 303
+
+    (106) nombre_tarea_par -> NOMBRE DOS_PUNTOS . VALOR_STRING
+    (107) nombre_tarea_par -> NOMBRE DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 323
+    error           shift and go to state 324
+
+
+state 304
+
+    (108) estado_tarea_par -> ESTADO DOS_PUNTOS . VALOR_STRING
+    (109) estado_tarea_par -> ESTADO DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 325
+    error           shift and go to state 326
+
+
+state 305
+
+    (110) resumen_tarea_par -> RESUMEN DOS_PUNTOS . VALOR_STRING
+    (111) resumen_tarea_par -> RESUMEN DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 327
+    error           shift and go to state 328
+
+
+state 306
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA . activo_par
+    (77) activo_par -> . ACTIVO DOS_PUNTOS VALOR_BOOL
+    (78) activo_par -> . ACTIVO DOS_PUNTOS error
+
+    ACTIVO          shift and go to state 291
+
+    activo_par                     shift and go to state 329
+
+state 307
+
+    (77) activo_par -> ACTIVO DOS_PUNTOS . VALOR_BOOL
+    (78) activo_par -> ACTIVO DOS_PUNTOS . error
+
+    VALOR_BOOL      shift and go to state 330
+    error           shift and go to state 331
+
+
+state 308
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par . COMA conclusion_proyecto_par
+
+    COMA            shift and go to state 332
+
+
+state 309
+
+    (122) video_proyecto_par -> VIDEO . DOS_PUNTOS VALOR_URL
+    (123) video_proyecto_par -> VIDEO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 333
+
+
+state 310
+
+    (120) fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA .
+
+    COMA            reduce using rule 120 (fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA .)
+
+
+state 311
+
+    (121) fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS error .
+
+    COMA            reduce using rule 121 (fecha_fin_proyecto_par -> FECHA_FIN DOS_PUNTOS error .)
+
+
+state 312
+
+    (95) miembros_tarea -> miembros_obligatorios_tarea COMA miembros_opcionales_tarea .
+
+    CLAUSURA_OBJETO reduce using rule 95 (miembros_tarea -> miembros_obligatorios_tarea COMA miembros_opcionales_tarea .)
+
+
+state 313
+
+    (102) miembros_opcionales_tarea -> fecha_inicio_tarea_par . COMA fecha_fin_tarea_par
+    (104) miembros_opcionales_tarea -> fecha_inicio_tarea_par .
+
+    COMA            shift and go to state 334
+    CLAUSURA_OBJETO reduce using rule 104 (miembros_opcionales_tarea -> fecha_inicio_tarea_par .)
+
+
+state 314
+
+    (103) miembros_opcionales_tarea -> fecha_fin_tarea_par . COMA fecha_inicio_tarea_par
+    (105) miembros_opcionales_tarea -> fecha_fin_tarea_par .
+
+    COMA            shift and go to state 335
+    CLAUSURA_OBJETO reduce using rule 105 (miembros_opcionales_tarea -> fecha_fin_tarea_par .)
+
+
+state 315
+
+    (112) fecha_inicio_tarea_par -> FECHA_INICIO . DOS_PUNTOS VALOR_FECHA
+    (113) fecha_inicio_tarea_par -> FECHA_INICIO . DOS_PUNTOS VALOR_NULL
+    (114) fecha_inicio_tarea_par -> FECHA_INICIO . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 336
+
+
+state 316
+
+    (115) fecha_fin_tarea_par -> FECHA_FIN . DOS_PUNTOS VALOR_FECHA
+    (116) fecha_fin_tarea_par -> FECHA_FIN . DOS_PUNTOS VALOR_NULL
+    (117) fecha_fin_tarea_par -> FECHA_FIN . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 337
+
+
+state 317
+
+    (96) miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par . COMA resumen_tarea_par
+
+    COMA            shift and go to state 338
+
+
+state 318
+
+    (97) miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par . COMA estado_tarea_par
+
+    COMA            shift and go to state 339
+
+
+state 319
+
+    (98) miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par . COMA resumen_tarea_par
+
+    COMA            shift and go to state 340
+
+
+state 320
+
+    (99) miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par . COMA nombre_tarea_par
+
+    COMA            shift and go to state 341
+
+
+state 321
+
+    (100) miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par . COMA estado_tarea_par
+
+    COMA            shift and go to state 342
+
+
+state 322
+
+    (101) miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par . COMA nombre_tarea_par
+
+    COMA            shift and go to state 343
+
+
+state 323
+
+    (106) nombre_tarea_par -> NOMBRE DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 106 (nombre_tarea_par -> NOMBRE DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 106 (nombre_tarea_par -> NOMBRE DOS_PUNTOS VALOR_STRING .)
+
+
+state 324
+
+    (107) nombre_tarea_par -> NOMBRE DOS_PUNTOS error .
+
+    COMA            reduce using rule 107 (nombre_tarea_par -> NOMBRE DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 107 (nombre_tarea_par -> NOMBRE DOS_PUNTOS error .)
+
+
+state 325
+
+    (108) estado_tarea_par -> ESTADO DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 108 (estado_tarea_par -> ESTADO DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 108 (estado_tarea_par -> ESTADO DOS_PUNTOS VALOR_STRING .)
+
+
+state 326
+
+    (109) estado_tarea_par -> ESTADO DOS_PUNTOS error .
+
+    COMA            reduce using rule 109 (estado_tarea_par -> ESTADO DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 109 (estado_tarea_par -> ESTADO DOS_PUNTOS error .)
+
+
+state 327
+
+    (110) resumen_tarea_par -> RESUMEN DOS_PUNTOS VALOR_STRING .
+
+    COMA            reduce using rule 110 (resumen_tarea_par -> RESUMEN DOS_PUNTOS VALOR_STRING .)
+    CLAUSURA_OBJETO reduce using rule 110 (resumen_tarea_par -> RESUMEN DOS_PUNTOS VALOR_STRING .)
+
+
+state 328
+
+    (111) resumen_tarea_par -> RESUMEN DOS_PUNTOS error .
+
+    COMA            reduce using rule 111 (resumen_tarea_par -> RESUMEN DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 111 (resumen_tarea_par -> RESUMEN DOS_PUNTOS error .)
+
+
+state 329
+
+    (59) miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par .
+
+    CLAUSURA_OBJETO reduce using rule 59 (miembros_integrante -> nombre_par COMA edad_par COMA cargo_par COMA foto_par COMA email_par COMA habilidades_par COMA salario_par COMA activo_par .)
+
+
+state 330
+
+    (77) activo_par -> ACTIVO DOS_PUNTOS VALOR_BOOL .
+
+    CLAUSURA_OBJETO reduce using rule 77 (activo_par -> ACTIVO DOS_PUNTOS VALOR_BOOL .)
+
+
+state 331
+
+    (78) activo_par -> ACTIVO DOS_PUNTOS error .
+
+    CLAUSURA_OBJETO reduce using rule 78 (activo_par -> ACTIVO DOS_PUNTOS error .)
+
+
+state 332
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA . conclusion_proyecto_par
+    (124) conclusion_proyecto_par -> . CONCLUSION DOS_PUNTOS VALOR_STRING
+    (125) conclusion_proyecto_par -> . CONCLUSION DOS_PUNTOS error
+
+    CONCLUSION      shift and go to state 345
+
+    conclusion_proyecto_par        shift and go to state 344
+
+state 333
+
+    (122) video_proyecto_par -> VIDEO DOS_PUNTOS . VALOR_URL
+    (123) video_proyecto_par -> VIDEO DOS_PUNTOS . error
+
+    VALOR_URL       shift and go to state 346
+    error           shift and go to state 347
+
+
+state 334
+
+    (102) miembros_opcionales_tarea -> fecha_inicio_tarea_par COMA . fecha_fin_tarea_par
+    (115) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS VALOR_FECHA
+    (116) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS VALOR_NULL
+    (117) fecha_fin_tarea_par -> . FECHA_FIN DOS_PUNTOS error
+
+    FECHA_FIN       shift and go to state 316
+
+    fecha_fin_tarea_par            shift and go to state 348
+
+state 335
+
+    (103) miembros_opcionales_tarea -> fecha_fin_tarea_par COMA . fecha_inicio_tarea_par
+    (112) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS VALOR_FECHA
+    (113) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS VALOR_NULL
+    (114) fecha_inicio_tarea_par -> . FECHA_INICIO DOS_PUNTOS error
+
+    FECHA_INICIO    shift and go to state 315
+
+    fecha_inicio_tarea_par         shift and go to state 349
+
+state 336
+
+    (112) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS . VALOR_FECHA
+    (113) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS . VALOR_NULL
+    (114) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS . error
+
+    VALOR_FECHA     shift and go to state 350
+    VALOR_NULL      shift and go to state 351
+    error           shift and go to state 352
+
+
+state 337
+
+    (115) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS . VALOR_FECHA
+    (116) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS . VALOR_NULL
+    (117) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS . error
+
+    VALOR_FECHA     shift and go to state 353
+    VALOR_NULL      shift and go to state 354
+    error           shift and go to state 355
+
+
+state 338
+
+    (96) miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par COMA . resumen_tarea_par
+    (110) resumen_tarea_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> . RESUMEN DOS_PUNTOS error
+
+    RESUMEN         shift and go to state 288
+
+    resumen_tarea_par              shift and go to state 356
+
+state 339
+
+    (97) miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par COMA . estado_tarea_par
+    (108) estado_tarea_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> . ESTADO DOS_PUNTOS error
+
+    ESTADO          shift and go to state 287
+
+    estado_tarea_par               shift and go to state 357
+
+state 340
+
+    (98) miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par COMA . resumen_tarea_par
+    (110) resumen_tarea_par -> . RESUMEN DOS_PUNTOS VALOR_STRING
+    (111) resumen_tarea_par -> . RESUMEN DOS_PUNTOS error
+
+    RESUMEN         shift and go to state 288
+
+    resumen_tarea_par              shift and go to state 358
+
+state 341
+
+    (99) miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par COMA . nombre_tarea_par
+    (106) nombre_tarea_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> . NOMBRE DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 286
+
+    nombre_tarea_par               shift and go to state 359
+
+state 342
+
+    (100) miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par COMA . estado_tarea_par
+    (108) estado_tarea_par -> . ESTADO DOS_PUNTOS VALOR_STRING
+    (109) estado_tarea_par -> . ESTADO DOS_PUNTOS error
+
+    ESTADO          shift and go to state 287
+
+    estado_tarea_par               shift and go to state 360
+
+state 343
+
+    (101) miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par COMA . nombre_tarea_par
+    (106) nombre_tarea_par -> . NOMBRE DOS_PUNTOS VALOR_STRING
+    (107) nombre_tarea_par -> . NOMBRE DOS_PUNTOS error
+
+    NOMBRE          shift and go to state 286
+
+    nombre_tarea_par               shift and go to state 361
+
+state 344
+
+    (83) miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par .
+
+    CLAUSURA_OBJETO reduce using rule 83 (miembros_proyecto -> nombre_proyecto_par COMA estado_proyecto_par COMA resumen_proyecto_par COMA tareas_proyecto_par COMA fecha_inicio_proyecto_par COMA fecha_fin_proyecto_par COMA video_proyecto_par COMA conclusion_proyecto_par .)
+
+
+state 345
+
+    (124) conclusion_proyecto_par -> CONCLUSION . DOS_PUNTOS VALOR_STRING
+    (125) conclusion_proyecto_par -> CONCLUSION . DOS_PUNTOS error
+
+    DOS_PUNTOS      shift and go to state 362
+
+
+state 346
+
+    (122) video_proyecto_par -> VIDEO DOS_PUNTOS VALOR_URL .
+
+    COMA            reduce using rule 122 (video_proyecto_par -> VIDEO DOS_PUNTOS VALOR_URL .)
+
+
+state 347
+
+    (123) video_proyecto_par -> VIDEO DOS_PUNTOS error .
+
+    COMA            reduce using rule 123 (video_proyecto_par -> VIDEO DOS_PUNTOS error .)
+
+
+state 348
+
+    (102) miembros_opcionales_tarea -> fecha_inicio_tarea_par COMA fecha_fin_tarea_par .
+
+    CLAUSURA_OBJETO reduce using rule 102 (miembros_opcionales_tarea -> fecha_inicio_tarea_par COMA fecha_fin_tarea_par .)
+
+
+state 349
+
+    (103) miembros_opcionales_tarea -> fecha_fin_tarea_par COMA fecha_inicio_tarea_par .
+
+    CLAUSURA_OBJETO reduce using rule 103 (miembros_opcionales_tarea -> fecha_fin_tarea_par COMA fecha_inicio_tarea_par .)
+
+
+state 350
+
+    (112) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA .
+
+    COMA            reduce using rule 112 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA .)
+    CLAUSURA_OBJETO reduce using rule 112 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_FECHA .)
+
+
+state 351
+
+    (113) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 113 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_NULL .)
+    CLAUSURA_OBJETO reduce using rule 113 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS VALOR_NULL .)
+
+
+state 352
+
+    (114) fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS error .
+
+    COMA            reduce using rule 114 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 114 (fecha_inicio_tarea_par -> FECHA_INICIO DOS_PUNTOS error .)
+
+
+state 353
+
+    (115) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA .
+
+    COMA            reduce using rule 115 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA .)
+    CLAUSURA_OBJETO reduce using rule 115 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_FECHA .)
+
+
+state 354
+
+    (116) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_NULL .
+
+    COMA            reduce using rule 116 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_NULL .)
+    CLAUSURA_OBJETO reduce using rule 116 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS VALOR_NULL .)
+
+
+state 355
+
+    (117) fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS error .
+
+    COMA            reduce using rule 117 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS error .)
+    CLAUSURA_OBJETO reduce using rule 117 (fecha_fin_tarea_par -> FECHA_FIN DOS_PUNTOS error .)
+
+
+state 356
+
+    (96) miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par COMA resumen_tarea_par .
+
+    COMA            reduce using rule 96 (miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par COMA resumen_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 96 (miembros_obligatorios_tarea -> nombre_tarea_par COMA estado_tarea_par COMA resumen_tarea_par .)
+
+
+state 357
+
+    (97) miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par COMA estado_tarea_par .
+
+    COMA            reduce using rule 97 (miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par COMA estado_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 97 (miembros_obligatorios_tarea -> nombre_tarea_par COMA resumen_tarea_par COMA estado_tarea_par .)
+
+
+state 358
+
+    (98) miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par COMA resumen_tarea_par .
+
+    COMA            reduce using rule 98 (miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par COMA resumen_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 98 (miembros_obligatorios_tarea -> estado_tarea_par COMA nombre_tarea_par COMA resumen_tarea_par .)
+
+
+state 359
+
+    (99) miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par COMA nombre_tarea_par .
+
+    COMA            reduce using rule 99 (miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par COMA nombre_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 99 (miembros_obligatorios_tarea -> estado_tarea_par COMA resumen_tarea_par COMA nombre_tarea_par .)
+
+
+state 360
+
+    (100) miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par COMA estado_tarea_par .
+
+    COMA            reduce using rule 100 (miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par COMA estado_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 100 (miembros_obligatorios_tarea -> resumen_tarea_par COMA nombre_tarea_par COMA estado_tarea_par .)
+
+
+state 361
+
+    (101) miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par COMA nombre_tarea_par .
+
+    COMA            reduce using rule 101 (miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par COMA nombre_tarea_par .)
+    CLAUSURA_OBJETO reduce using rule 101 (miembros_obligatorios_tarea -> resumen_tarea_par COMA estado_tarea_par COMA nombre_tarea_par .)
+
+
+state 362
+
+    (124) conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS . VALOR_STRING
+    (125) conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS . error
+
+    VALOR_STRING    shift and go to state 363
+    error           shift and go to state 364
+
+
+state 363
+
+    (124) conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS VALOR_STRING .
+
+    CLAUSURA_OBJETO reduce using rule 124 (conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS VALOR_STRING .)
+
+
+state 364
+
+    (125) conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS error .
+
+    CLAUSURA_OBJETO reduce using rule 125 (conclusion_proyecto_par -> CONCLUSION DOS_PUNTOS error .)
+
